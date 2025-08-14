@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "327649713751",
+    "firebase_url": "https://damarisfcmapp.firebaseio.com",
+    "project_id": "damarisfcmapp",
+    "storage_bucket": "damarisfcmapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327649713751:android:c96de5d60ec47cc7f48d12",
+        "android_client_info": {
+          "package_name": "com.anonymous.Damaris"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATTZPyyWImW1Jjv8qOkd7JYwgOcXsQn1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327649713751:android:054783389facea74",
+        "android_client_info": {
+          "package_name": "com.damaris.threeg.threegmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATTZPyyWImW1Jjv8qOkd7JYwgOcXsQn1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
