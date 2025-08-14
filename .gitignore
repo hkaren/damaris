@@ -35,3 +35,9 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Firebase and sensitive files
+damarisfcmapp-firebase-adminsdk-ztfru-215f8d149c.json
+GoogleService-Info.plist
+*.keystore
+*.jks
