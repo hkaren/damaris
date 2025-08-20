@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import * as Device from "expo-device";
-import * as Notifications from "expo-notifications";
+import * as Notifications from 'expo-notifications'
 
 import Constants from "expo-constants";
 
@@ -15,8 +15,9 @@ export const usePushNotifications = (): PushNotificationState => {
   Notifications.setNotificationHandler({
     handleNotification: async () => ({
       shouldPlaySound: false,
-      shouldShowAlert: true,
       shouldSetBadge: false,
+      shouldShowBanner: true,
+      shouldShowList: true,
     }),
   });
 

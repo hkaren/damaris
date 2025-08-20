@@ -6,7 +6,6 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-        classpath 'com.google.gms:google-services:4.4.1'
     classpath('com.android.tools.build:gradle')
     classpath('com.facebook.react:react-native-gradle-plugin')
     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
@@ -31,27 +30,6 @@ allprojects {
     google()
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
-  }
-  
-  // Resolve variant conflicts
-  configurations.all {
-    resolutionStrategy {
-      force 'com.facebook.react:react-android:0.79.2'
-    }
-  }
-  
-  // Configure react-native-camera variant selection
-  afterEvaluate { project ->
-    if (project.name == 'react-native-camera') {
-      project.android {
-        flavorDimensions "default"
-        productFlavors {
-          general {
-            dimension "default"
-          }
-        }
-      }
-    }
   }
 }
 

@@ -1,4 +1,4 @@
-package com.anonymous.Damaris
+package com.damaris.notification.damaris
 
 import android.os.Build
 import android.os.Bundle

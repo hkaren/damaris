@@ -87,9 +87,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.Damaris'
+    namespace 'com.damaris.notification.damaris'
     defaultConfig {
-        applicationId 'com.anonymous.Damaris'
+        applicationId 'com.damaris.notification.damaris'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -119,17 +119,12 @@ android {
     }
     packagingOptions {
         jniLibs {
-            // useLegacyPackaging is deprecated, using modern packaging instead
-            pickFirsts += ['**/libc++_shared.so', '**/libjsc.so']
+            useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
     }
     androidResources {
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
     }
-    
-
-    
-
 }
 
 // Apply static values from `gradle.properties` to the `android.packagingOptions`
@@ -155,13 +150,6 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-    
-    // Force specific variant for react-native-camera
-    implementation(project(':react-native-camera')) {
-        exclude group: 'com.facebook.react', module: 'react-native'
-    }
-    
-
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
@@ -186,10 +174,4 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    
-
-    
-
 }
-
-apply plugin: 'com.google.gms.google-services'
