@@ -1,22 +1,18 @@
-import {Provider, useDispatch} from "react-redux";
+import {Provider} from "react-redux";
 
- import MyApp from "./src/MyApp";
+import MyApp from "./src/MyApp";
 import store from "./src/store/Index";
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 //import AppGall from "./gall";
 import 'react-native-gesture-handler';
-import { AutocompleteDropdownContextProvider } from "react-native-autocomplete-dropdown";
-// import { usePushNotifications } from "./src/hook/usePushNotifications";
-// import { useEffect } from "react";
-// import { useTranslation } from "react-i18next";
-// import Constants from "expo-constants";
+import {AutocompleteDropdownContextProvider} from "react-native-autocomplete-dropdown";
+import {usePushNotifications} from "./src/hook/usePushNotifications";
 
 const App = () => {
 
-  // const isExpoGo = Constants.appOwnership === 'expo';
-  // const {expoPushToken} = isExpoGo ? { expoPushToken: undefined } : usePushNotifications();
-  //
-  // console.log('data',expoPushToken?.data, 'enkrbfvhefjbh' );
+  const {expoPushToken} = usePushNotifications();
+
+  console.log('data',expoPushToken?.data, 'enkrbfvhefjbh' );
 
   return (
     <Provider store={store}>

@@ -21,9 +21,16 @@
       }
     },
     "plugins": [
-      ["expo-build-properties", { "android": { "newArchEnabled": false } }]
+      ["expo-build-properties",  { "android": { "newArchEnabled": false } }],
+      "expo-notifications"
     ],
-    "android": { "package": "com.damaris.notification.damaris" },
-    "ios": { "bundleIdentifier": "com.damaris.notification.damaris" }
+    "android": {
+      "package": "com.damaris.notification.damaris",
+      "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "com.damaris.notification.damaris",
+      "googleServicesFile": "./GoogleService-Info.plist"
+    }
   }
 }
