@@ -38,7 +38,7 @@ const getLangFromStorage = async (): Promise<string | null> => {
       return await AsyncStorage.getItem("lang");
   } catch (error) {
       console.log(error);
-      return null;  
+      return null;
   }
 };
 
@@ -66,7 +66,7 @@ const getScaleFromStorage = async (): Promise<string | null> => {
       return await AsyncStorage.getItem("scale");
   } catch (error) {
       console.log(error);
-      return null;  
+      return null;
   }
 };
 
@@ -84,7 +84,7 @@ const getExportPDFFromStorage = async (): Promise<string | null> => {
       return await AsyncStorage.getItem("exportPDF");
   } catch (error) {
       console.log(error);
-      return null;  
+      return null;
   }
 };
 const setAllowFingerprintToStorage = async (allowFingerprint: string): Promise<string | null> => {
@@ -101,7 +101,7 @@ const getAllowFingerprintFromStorage = async (): Promise<string | null> => {
       return await AsyncStorage.getItem("allowFingerprint");
   } catch (error) {
       console.log(error);
-      return null;  
+      return null;
   }
 };
 
@@ -193,9 +193,9 @@ const Settings: FC<MainTabActivityScreenProps> = (props) => {
       }
 
       setUrl(url);
-      setLanguage(lang); 
+      setLanguage(lang);
       setUsername(userInfo?.account?.login);
-      
+
       try {
           const data = {
               uniqueKey: userInfo.uniqueKey,
