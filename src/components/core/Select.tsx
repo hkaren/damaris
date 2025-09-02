@@ -88,6 +88,17 @@ export const Select = (props: SelectComponentProps) => {
                     touchableWrapperProps={{}}
                     InputAccessoryView={Platform.OS === 'ios' ? _renderHeader() : null}
                     onValueChange={(value, index) => {
+
+                        if(Platform.OS === 'android') {
+                            if (chooseValue === 'null' || chooseValue === null || chooseValue == '') {
+                                setDefaultValue('');
+                                props.onSelected('');
+                            } else {
+                                setDefaultValue(props.data?.filter((item: any) => item.value == chooseValue)[0].label);
+                                props.onSelected(chooseValue);
+                            }
+                        }
+
                         setChooseValue(value);
                     }}
 

@@ -5,7 +5,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NAVIGATOR_STACK_SCREEN_PRE_LOGIN_FORM } from '../../../utils/AppConstants';
 import styles from './styles';
 import { useSelector } from 'react-redux';
-import {Select} from "../../../components/core/Select";
 
 type RootStackParamList = {
   Login: undefined;
