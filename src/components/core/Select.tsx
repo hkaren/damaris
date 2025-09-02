@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import RNPickerSelect from 'react-native-picker-select';
-import {TouchableOpacity, View, Text, StyleSheet} from "react-native";
+import {TouchableOpacity, View, Text, StyleSheet, Platform} from "react-native";
 import {TextInput} from "react-native-paper";
 import { SelectComponentProps } from "../../Interface";
 import { SvgComponent } from "../../core/SvgComponent";
@@ -52,8 +52,7 @@ export const Select = (props: SelectComponentProps) => {
 
     return (
         <View style={[styles.container, props.containerStyle]}>
-            <TouchableOpacity onPress={() => {console.log(ref.current);
-             ref.current?.togglePicker(true)}} style={styles.btn_input}>
+            <TouchableOpacity onPress={() => {ref.current?.togglePicker()}} style={styles.btn_input}>
                 <TextInput
                     label={<Text style={props.placeholderStyle}>{props.title}</Text>}
                     //   label={props.title}
@@ -81,18 +80,17 @@ export const Select = (props: SelectComponentProps) => {
                         inputIOS: [styles.inputIOS],
                         inputAndroid: [styles.inputAndroid],
                     }}
+                    useNativeAndroidPickerStyle={false}
                     placeholder={{
                         label: props.title,
                         value: null,
                     }}
                     touchableWrapperProps={{}}
-                    InputAccessoryView={_renderHeader}
+                    InputAccessoryView={Platform.OS === 'ios' ? _renderHeader() : null}
                     onValueChange={(value, index) => {
                         setChooseValue(value);
                     }}
-                    // onClose={() => {
-                    //     setChooseValue('')
-                    // }}
+
                     items={props.data}
                     onOpen={() => {
                         let findIndex = (props.data && props.data.length > 0) ? props.data.findIndex((e: any) => e.label === defaultValue) : -1;
@@ -136,8 +134,13 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     select_cont: {
-        width: 0,
-        height: 0,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: 48,
+        opacity: 0,
+        zIndex: 1000,
     },
     inputIOS: {
         fontSize: 16,
