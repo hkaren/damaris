@@ -1,5 +1,5 @@
-export const MOBILE_APP_VERSION = "4.9";
-export const MOBILE_API_PATH_REST = "http://10.27.41.84:8888/dgs3g_web/";
+export const MOBILE_APP_VERSION = ""; // IOS: 4.9, ANDROID: 6.2
+//export const MOBILE_API_PATH_REST = "http://10.27.41.84:8888/dgs3g_web/";
 
 export const MOBILE_DEFAULT_LANG_KEY = "fr";
 export const PAGINATION_COUNT_20 = 20;

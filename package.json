@@ -47,7 +47,7 @@
     "react-native-modal-datetime-picker": "^18.0.0",
     "react-native-paper": "^5.14.0",
     "react-native-pdf": "^6.7.7",
-    "react-native-picker-select": "^9.3.1",
+    "react-native-picker-select": "9.1.3",
     "react-native-qrcode-scanner": "^1.5.5",
     "react-native-reanimated": "~3.17.4",
     "react-native-render-html": "^4.2.5",

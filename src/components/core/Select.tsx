@@ -52,7 +52,8 @@ export const Select = (props: SelectComponentProps) => {
 
     return (
         <View style={[styles.container, props.containerStyle]}>
-            <TouchableOpacity onPress={() => ref.current?.togglePicker()} style={styles.btn_input}>
+            <TouchableOpacity onPress={() => {console.log(ref.current);
+             ref.current?.togglePicker(true)}} style={styles.btn_input}>
                 <TextInput
                     label={<Text style={props.placeholderStyle}>{props.title}</Text>}
                     //   label={props.title}

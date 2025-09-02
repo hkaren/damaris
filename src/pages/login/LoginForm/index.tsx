@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, TouchableWithoutFeedback, Keyboard, ScrollView, Platform } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, TouchableWithoutFeedback, Keyboard, ScrollView, Platform, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from './styles';
@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import axiosInstance from "../../../networking/api";
 import {FormData} from '../../../Interface';
 import {
-    MOBILE_API_PATH_REST,
     MOBILE_API_PATH_REST_AUTH_LOGIN,
     MOBILE_APP_VERSION, MOBILE_DEFAULT_LANG_KEY, NAVIGATOR_STACK_SCREEN_DRAWER,
     RESPONSE_CODE_ERROR_NOT_COMPATIBLE_VERSION,
@@ -89,7 +88,7 @@ export const LoginForm = () => {
                 setLoading(true);
                 const dataToSend = {
                     pnToken: "",
-                    callerName: getPlatform(),
+                    callerName: '', // getPlatform()
                     callerVersion: MOBILE_APP_VERSION,
                     depId: "",
                     lang: MOBILE_DEFAULT_LANG_KEY,
@@ -101,15 +100,21 @@ export const LoginForm = () => {
                         longitude: location?.longitude,
                     }
                 };
-                console.log(MOBILE_API_PATH_REST + MOBILE_API_PATH_REST_AUTH_LOGIN);
-
+                console.log(dataToSend, data, ' // dataToSend');
+                
+                
                 //let url_ = "http://10.27.41.84:8888/dgs3g_web";
                 let url_ = url;
                 if(!url_.endsWith('/')){
                     url_ += '/';
                 }
+console.log('Login form URL: ', url_ + MOBILE_API_PATH_REST_AUTH_LOGIN);
 
                 const response = await axiosInstance.post(url_ + MOBILE_API_PATH_REST_AUTH_LOGIN, dataToSend);
+                console.log(response.data, ' // response');
+                //Alert.alert('response', JSON.stringify(response.data));
+
+                
                 const result = response?.data?.result;
 
                 let message: string = '';
@@ -187,16 +192,34 @@ export const LoginForm = () => {
                     secureTextEntry
                     autoCapitalize="none"
                     onChangeText={e => {
+                        // Create fake password display with asterisks
                         let passFake = ''
                         for(let i = 0; i < e.length; i++) {
-                            passFake+='*'
+                            passFake += '*'
                         }
+                        
+                        // Handle password logic - detect if this is a paste operation or typing
                         let newPass = ''
-                        if(e.length > data.password.length){
-                            newPass = data.password + e[e.length-1]
-                        }else{
-                            newPass = data.password.slice(0, data.password.length - 1);
+                        const currentFakeLength = data.passwordFake.length
+                        const newLength = e.length
+                        
+                        if(newLength > currentFakeLength) {
+                            // Characters were added (typing or pasting)
+                            if(newLength === currentFakeLength + 1) {
+                                // Single character added (typing)
+                                newPass = data.password + e[e.length - 1]
+                            } else {
+                                // Multiple characters added (pasting) - replace the entire password
+                                newPass = e
+                            }
+                        } else if(newLength < currentFakeLength) {
+                            // Characters were removed
+                            newPass = data.password.slice(0, newLength)
+                        } else {
+                            // Length is the same, keep current password
+                            newPass = data.password
                         }
+                        
                         onChangeData(newPass, 'password')
                         onChangeData(passFake, 'passwordFake')
                     }}
@@ -223,7 +246,6 @@ export const LoginForm = () => {
                 </View>
             </View>
             <Loading visible={loading} />
-            <View style={{height: 300}}><Text>test</Text></View>
         </ScrollView>
     );
 };

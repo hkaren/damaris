@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     },
     formContainer: {
       gap: 16,
+      width: '100%',
+      paddingHorizontal: 16,
     },
     input: {
       backgroundColor: '#F5F5F5',
