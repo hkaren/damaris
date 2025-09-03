@@ -7,7 +7,7 @@ import * as Application from 'expo-application';
 import ImagesPath from './ImagesPath';
 import { MenuItem } from '../Interface';
 import { NAVIGATOR_STACK_SCREEN_LOGOUT } from './AppConstants';
-import PdfThumbnail from "react-native-pdf-thumbnail";
+//import PdfThumbnail from "react-native-pdf-thumbnail";
 
 export const getDeviceId = async (): Promise<string | null> => {
     if (Platform.OS === 'android') {
@@ -132,6 +132,7 @@ export const parseYyyyMMddHHmm = (s: string): Date | null => {
  * @param pdfUri e.g. "file:///data/user/0/.../DocumentPicker/xyz.pdf"
  * @returns QR string, or throws if not found
  */
+/*
 export const readQrFromFirstPage = async (pdfUri: string): Promise<string> => {
   try {
     if (Constants.appOwnership === 'expo') {
@@ -156,4 +157,4 @@ export const readQrFromFirstPage = async (pdfUri: string): Promise<string> => {
     console.log("QR scan error !!! -> ", String(err?.message ?? err));
     throw err;
   }
-}
+}*/

@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import QRScanner from '../../general/components/QRScanner';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../../configs/i18n';
-import { getDeviceId, getPlatform, parseYyyyMMddHHmm, readQrFromFirstPage, toast } from '../../../utils/StaticMethods';
+import { getDeviceId, getPlatform, parseYyyyMMddHHmm, toast } from '../../../utils/StaticMethods';
 import { MD5 } from "crypto-js";
 import * as Location from 'expo-location';
 import axiosInstance from '../../../networking/api';
@@ -172,7 +172,7 @@ export const PreLoginForm = () => {
     console.log(file.uri);
 
     try {
-      const value = await readQrFromFirstPage(file.uri);
+      const value = ""; //await readQrFromFirstPage(file.uri);
       console.log(value, ' /// value');
     } catch (e: any) {
       console.log(e);
