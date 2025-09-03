@@ -110,6 +110,8 @@ const Messages = (props: MessagesProps) => {
               pageSize: PAGINATION_COUNT_20
             }
           };
+          console.log(url);
+          
           const response = await axiosInstance.post(url + MOBILE_API_PATH_REST_GET_MESSAGES, data);
           const messages = response.data.messages;
 

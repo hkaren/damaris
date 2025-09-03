@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#ffffff',
         borderRadius: 15,
-    },
+    }, 
 
     labelContainer: {
         backgroundColor: "white", // Same color as background

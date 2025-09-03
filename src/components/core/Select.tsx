@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import RNPickerSelect from 'react-native-picker-select';
-import {TouchableOpacity, View, Text, Platform, Modal, StyleSheet} from "react-native";
+import {TouchableOpacity, View, Text, Platform, Modal, StyleSheet, StyleProp, ViewStyle} from "react-native";
 import { SvgComponent } from "../../core/SvgComponent";
 import {TextInput} from "react-native-paper";
 import {SelectComponentProps} from "../../Interface";
@@ -130,8 +130,10 @@ export const Select = (props: SelectComponentProps) => {
                       label={<Text style={props.placeholderStyle}>{props.title}</Text>}
                       mode="outlined"
                       value={`${defaultValue}`}
-                      outlineStyle={props.outlineStyleCustom}
-                      style={styles.input}
+                      outlineStyle={[styles.outlined, props.outlineStyleCustom, props.outlineStyle as StyleProp<ViewStyle>]}
+                    //   style={styles.input}
+                      style={[styles.field, props.fieldCss as StyleProp<ViewStyle>]}
+                
                       activeOutlineColor={'#d9d9d9'}
                       outlineColor={'#d9d9d9'}
                       editable={false}
@@ -202,6 +204,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         color: '#000',
     },
+    field: {
+        height: 47,
+        fontSize: 16,
+        backgroundColor: 'transparent'
+    },
+    outlined: {
+        borderColor: '#d9d9d9',
+        borderWidth: 2,
+        backgroundColor: '#ffffff',
+        borderRadius: 15,
+    }, 
     select_cont: {
         position: 'absolute',
         width: '100%',

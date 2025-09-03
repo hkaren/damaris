@@ -320,7 +320,7 @@ const Settings: FC<MainTabActivityScreenProps> = (props) => {
         <Header title="Settings" navigation={props.navigation} />
         <View style={styles.container}>
           <ScrollView contentContainerStyle={{flexGrow: 1}} automaticallyAdjustKeyboardInsets showsVerticalScrollIndicator={false}>
-            <View style={Styles.mb_10}>
+            <View>
               <Select
                   title={t('menu_item_language')}
                   defaultValue={language}

@@ -13,7 +13,7 @@ export const NoDataFoundPage: React.FC<NoDataFoundPageProps> = (props: NoDataFou
     }
     
     return (
-        <View style={{position: 'absolute', top: '50%', left: '45%', transform: [{translateX: -50}, {translateY: -50}], alignItems: 'center'}}>
+        <View style={{position: 'absolute', top: '50%', left: '38%', transform: [{translateX: -50}, {translateY: -50}], alignItems: 'center'}}>
             <Text style={[Styles.fw_b, Styles.fs_20, Styles.color_d9]}>{t('no_data_found')}</Text>
             <Button 
                 variant="general"

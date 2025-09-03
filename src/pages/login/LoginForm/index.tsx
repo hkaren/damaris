@@ -85,6 +85,7 @@ export const LoginForm = () => {
             if(data.login == '' || data.password == '' || url == ''){
                 toast('error', 'top', 'ERROR!', t('all_fields_are_required'));
             } else {
+                const password = MD5(data.password).toString();
                 setLoading(true);
                 const dataToSend = {
                     pnToken: "",
@@ -93,7 +94,7 @@ export const LoginForm = () => {
                     depId: "",
                     lang: MOBILE_DEFAULT_LANG_KEY,
                     login: data.login,
-                    password: MD5(data.password).toString(),
+                    password: password,
                     location: {
                         imei: await getDeviceId(),
                         latitude: location?.latitude,
@@ -130,7 +131,7 @@ console.log('Login form URL: ', url_ + MOBILE_API_PATH_REST_AUTH_LOGIN);
                 if(message){
                     toast('error', 'top', 'ERROR!', result?.message);
                 } else {
-                    await setDataToStorage(data.login, data.password, url_, MOBILE_DEFAULT_LANG_KEY);
+                    await setDataToStorage(data.login, password, url_, MOBILE_DEFAULT_LANG_KEY);
                     dispatch({
                         type: 'SET_CUSTOMER',
                         payload:{

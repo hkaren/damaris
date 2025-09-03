@@ -38,12 +38,12 @@ export const Button = ({
     return (
         <View style={styles.container}>
             { variant === 'general' ? 
-                <TouchableOpacity key={key} disabled={state} style={[Styles.button, buttonColor, buttonCssClass]} onPress={onClickHandler}>
+                <TouchableOpacity key={key} disabled={state} style={[Styles.button, buttonColor, {width: '70%', alignSelf: 'center'}, buttonCssClass]} onPress={onClickHandler}>
                     { state ? 
                         <ActivityIndicator size="small" color="white" style={{marginRight: 5}} />
                         : null
                     }
-                    <Text key={key} style={[Styles.buttonText, buttonTextCSS, textCssClass as StyleProp<ViewStyle>]}>{title}</Text>
+                    <Text key={key} style={[Styles.buttonText, {flex: 1, textAlign: 'center'}, buttonTextCSS, textCssClass as StyleProp<ViewStyle>]}>{title}</Text>
                 </TouchableOpacity>
                 :
                 <button className={`button-${variant}`} {...rest}>

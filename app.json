@@ -30,7 +30,10 @@
     },
     "ios": {
       "bundleIdentifier": "com.damaris.notification.damaris",
-      "googleServicesFile": "./GoogleService-Info.plist"
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow camera access to scan QR codes."
+      }
     }
   }
 }

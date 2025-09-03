@@ -95,7 +95,7 @@ const resources = {
           menu_item_packagingFile: 'Packaging File',
           menu_item_logout: 'Logout',
           menu_item_settings: 'Settings',
-          menu_item_language: 'LanguageFR',
+          menu_item_language: 'Language',
           menu_item_myAccount: 'My account',
           menu_item_changeDepartment: 'Change department',
           menu_item_archiveSettings: 'Archive settings',
@@ -174,10 +174,10 @@ const resources = {
           parent_box_small_error: 'Parent box is smaller than the current box',
     
           // Welcome Screen V2
-          v2_welcome_title: 'Welcome',
+          v2_welcome_title: 'Bienvenue',
           v2_welcome_text: 'If your organization provides QR code, please scan it to get configurations',
           v2_scan: 'Scan',
-          v2_manual_setup: 'Manual Setup',
+          v2_manual_setup: 'Config. manuel',
           v2_bottom_damaris: 'damaris',
           v2_bottom_mobile: 'mobile',
           v2_bottom_version: 'version 6.4',
@@ -640,7 +640,6 @@ const resources = {
           declaration_success: 'Declaration has been done successfully',
           document_level_qc_error: 'Document level quality control is not passed',
           mt_execution_result: 'Execution Result (Measurement Unit: Count)',
-      
           
           off_mode_action_receive_file: 'Receive file',
           off_mode_action_receive_box: 'Receive box',
@@ -649,6 +648,9 @@ const resources = {
           off_mode_action_reLocalize_file: 'ReLocalize file',
           off_mode_action_reLocalize_box: 'ReLocalize box',
           off_mode_action_delete_messages: 'Delete messages',
+
+          button_browse: 'Naviguer...',
+          login_activity_qr_code_lifetime_invalid: 'The QR Code lifetime is invalid',
         },
       },
   en: {
@@ -738,7 +740,7 @@ const resources = {
       menu_item_packagingFile: 'Packaging file',
       menu_item_logout: 'Logout',
       menu_item_settings: 'Settings',
-      menu_item_language: 'LanguageEN',
+      menu_item_language: 'Language',
       menu_item_myAccount: 'My account',
       menu_item_changeDepartment: 'Change department',
       menu_item_archiveSettings: 'Archive settings',
@@ -1082,7 +1084,8 @@ const resources = {
       fragment_electronic_archive_error_12: 'An error occurred while trying to get the list of dictionaries',
       fragment_electronic_archive_error_13: 'Error getting archive types',
       fragment_document_search_error_2: 'No result found',
-
+      
+      login_activity_qr_code_lifetime_invalid: 'Délai QR Code invalide'
     },
   },
 };

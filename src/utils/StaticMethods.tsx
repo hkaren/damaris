@@ -1,10 +1,13 @@
 //import * as Device from 'expo-device';
 import { Dimensions, Platform } from 'react-native';
+import Constants from 'expo-constants';
+import { Camera } from 'expo-camera';
 import Toast, { ToastPosition } from 'react-native-toast-message';
 import * as Application from 'expo-application';
 import ImagesPath from './ImagesPath';
 import { MenuItem } from '../Interface';
 import { NAVIGATOR_STACK_SCREEN_LOGOUT } from './AppConstants';
+import PdfThumbnail from "react-native-pdf-thumbnail";
 
 export const getDeviceId = async (): Promise<string | null> => {
     if (Platform.OS === 'android') {
@@ -96,3 +99,61 @@ export const getMenuItemsArray = (t: (key: string) => string): MenuItem[] => [
   {id: '101',code: "About", navigateTo: 'About', title: t('menu_item_aboutUs')},
   {id: '102',code: "Logout", navigateTo: NAVIGATOR_STACK_SCREEN_LOGOUT, title: t('menu_item_logout')}
 ];
+
+
+/** Parse "yyyyMMddHHmm" into a JS Date */
+export const parseYyyyMMddHHmm = (s: string): Date | null => {
+  if (!/^\d{12}$/.test(s)) return null;
+
+  const year = Number(s.slice(0, 4));
+  const month = Number(s.slice(4, 6)) - 1; // JS months: 0–11
+  const day = Number(s.slice(6, 8));
+  const hour = Number(s.slice(8, 10));
+  const minute = Number(s.slice(10, 12));
+
+  const d = new Date(year, month, day, hour, minute, 0, 0);
+
+  // Check validity (avoid overflow like 20260231 → Mar 2)
+  if (
+    d.getFullYear() !== year ||
+    d.getMonth() !== month ||
+    d.getDate() !== day ||
+    d.getHours() !== hour ||
+    d.getMinutes() !== minute
+  ) {
+    return null;
+  }
+
+  return d;
+}
+
+/**
+ * Extracts the QR code value from the first page of a local PDF.
+ * @param pdfUri e.g. "file:///data/user/0/.../DocumentPicker/xyz.pdf"
+ * @returns QR string, or throws if not found
+ */
+export const readQrFromFirstPage = async (pdfUri: string): Promise<string> => {
+  try {
+    if (Constants.appOwnership === 'expo') {
+      throw new Error('PDF QR extraction requires a Dev Build or EAS build (not Expo Go).');
+    }
+    // 1) Generate an image (thumbnail) of page 0
+    //    Increase width if your QR is small. Height auto scales if omitted.
+    const thumb = await PdfThumbnail.generate(pdfUri, 0, 1600);
+
+    // 2) Scan that image with expo-camera's scanFromURLAsync
+    const barcodes = await Camera.scanFromURLAsync(thumb.uri, ['qr']);
+
+    if (!barcodes || barcodes.length === 0) {
+      throw new Error("No QR found on page 1. Try increasing thumbnail width.");
+    }
+
+    // ML Kit returns displayValue/rawValue; prefer displayValue if present
+    const first = barcodes[0] as any;
+    const data = first?.data ?? first?.rawValue ?? first?.displayValue;
+    return data ?? "";
+  } catch (err: any) {
+    console.log("QR scan error !!! -> ", String(err?.message ?? err));
+    throw err;
+  }
+}

@@ -4,8 +4,10 @@ export const MOBILE_APP_VERSION = ""; // IOS: 4.9, ANDROID: 6.2
 export const MOBILE_DEFAULT_LANG_KEY = "fr";
 export const PAGINATION_COUNT_20 = 20;
 
-
-
+export const LANGUAGE_EN = "en";
+export const LANGUAGE_FR = "fr";
+export const LANGUAGE_DE = "de";
+export const LANGUAGE_RO = "ro";
 
 export const NAVIGATOR_STACK_SCREEN_SPLASH = "SplashScreen";
 export const NAVIGATOR_STACK_SCREEN_WELCOME = "WelcomePage";

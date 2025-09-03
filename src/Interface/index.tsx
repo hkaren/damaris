@@ -98,7 +98,9 @@ export interface SelectComponentProps {
     keyItem?: string
     defaultValue?: string | number,
     idItem?: string | number,
-    onSelected: (e: any) => void
+    onSelected: (e: any) => void,
+    fieldCss?: React.CSSProperties[],
+    outlineStyle?: React.CSSProperties[],
 }
 
 export interface VirtualFolderProps {

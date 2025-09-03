@@ -4,8 +4,10 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: 'white',
-      paddingHorizontal: 20,
       justifyContent: 'center',
+    },
+    container_inner: {
+      paddingHorizontal: 20,
     },
     title: {
       fontSize: 34,
