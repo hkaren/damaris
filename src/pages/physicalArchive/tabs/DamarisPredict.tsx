@@ -25,6 +25,8 @@ const getUrlFromStorage = async (): Promise<string | null> => {
 interface DamarisPredictProps {
   navigation: any;
   route: RouteProp<Record<string, any>, string>;
+  openScanner: (e: any) => void;
+  qrCode: string
 }
 
 const DamarisPredict = (props: DamarisPredictProps) => {
@@ -35,15 +37,8 @@ const DamarisPredict = (props: DamarisPredictProps) => {
   const [code, setCode] = useState('');
   
   useEffect(() => {
-    
+    setCode(props.qrCode);
   }, [props.route.params]);
-
-  // params?.randomKey
-
-  const openScanner = () => {
-    Keyboard.dismiss();
-    console.log('openScanner');    
-  };
 
   const sendAction = async () => {
     const url: string | null = await getUrlFromStorage();
@@ -96,11 +91,11 @@ const DamarisPredict = (props: DamarisPredictProps) => {
               onChange={(value) => {
                 setCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('dp')} />}
             />
         </View>
         <View>
-          <Button variant="general" title={t('send_barcode')} onClickHandler={() => sendAction()} />
+          <Button variant="general" title={t('send_barcode')} onClickHandler={() => sendAction()} buttonCssClass={[{width: '100%'}]} />
         </View>
       </ScrollView>
     </View>

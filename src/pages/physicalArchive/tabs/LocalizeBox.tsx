@@ -19,6 +19,9 @@ import NetInfo from '@react-native-community/netinfo';
 interface LocalizeBoxProps {
   navigation: any;
   route: RouteProp<Record<string, any>, string>;
+  openScanner: (e: any) => void;
+  qrCode: string;
+  qrCodeStorageAddress: string
 }
 
 const getUrlFromStorage = async (): Promise<string | null> => {
@@ -81,14 +84,9 @@ const LocalizeBox = (props: LocalizeBoxProps) => {
   }, []);
 
   useEffect(() => {
-    setCode('');
-    setStorageAddress('');
+    setCode(props.qrCode);
+    setStorageAddress(props.qrCodeStorageAddress);
   }, [props.route.params]);
-
-  const openScanner = () => {
-    Keyboard.dismiss();
-    console.log('openScanner');    
-  };
 
   const sendAction = async () => {
     if (isConnected) {
@@ -163,7 +161,7 @@ const LocalizeBox = (props: LocalizeBoxProps) => {
               onChange={(value) => {
                 setCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('lb')} />}
             />
         </View>
         <View style={Styles.mb_10}>
@@ -173,11 +171,11 @@ const LocalizeBox = (props: LocalizeBoxProps) => {
               onChange={(value) => {
                 setStorageAddress(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('lb_sa')} />}
             />
         </View>
         <View>
-          <Button variant="general" title={t('fragment_localize_box_title')} onClickHandler={() => sendAction()} />
+          <Button variant="general" title={t('fragment_localize_box_title')} onClickHandler={() => sendAction()} buttonCssClass={[{width: '100%'}]} />
         </View>
       </ScrollView>
       <Loading visible={loading} />

@@ -19,6 +19,8 @@ import NetInfo from '@react-native-community/netinfo';
 interface ReceiveBoxProps {
   navigation: any;
   route: RouteProp<Record<string, any>, string>;
+  openScanner: (e: any) => void;
+  qrCode: string
 }
 
 const getUrlFromStorage = async (): Promise<string | null> => {
@@ -80,13 +82,8 @@ const ReceiveBox = (props: ReceiveBoxProps) => {
   }, []);
 
   useEffect(() => {
-    setCode('')
+    setCode(props.qrCode);
   }, [props.route.params]);
-
-  const openScanner = () => {
-    Keyboard.dismiss();
-    console.log('openScanner');    
-  };
 
   const sendAction = async () => {
     if (isConnected) {
@@ -153,11 +150,11 @@ const ReceiveBox = (props: ReceiveBoxProps) => {
               onChange={(value) => {
                 setCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('rb')} />}
             />
         </View>
         <View>
-          <Button variant="general" title={t('fragment_receive_box_title')} onClickHandler={() => sendAction()} />
+          <Button variant="general" title={t('fragment_receive_box_title')} onClickHandler={() => sendAction()} buttonCssClass={[{width: '100%'}]} />
         </View>
       </ScrollView>
       <Loading visible={loading} />

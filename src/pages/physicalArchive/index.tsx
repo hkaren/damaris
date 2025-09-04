@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {View, Text, useWindowDimensions, Dimensions} from 'react-native';
+import {View, Text, useWindowDimensions, Dimensions, Keyboard} from 'react-native';
 import { useIsFocused} from '@react-navigation/native';
 
 import { TabBar, TabView } from 'react-native-tab-view';
@@ -18,6 +18,7 @@ import ReLocalizeFiles from './tabs/ReLocalizeFiles';
 import PackagingBox from './tabs/PackagingBox';
 import PackagingFiles from './tabs/PackagingFiles';
 import { useTranslation } from 'react-i18next';
+import QRScanner from '../general/components/QRScanner';
 
 type PhysicalArchiveProps = {
     navigation: any;
@@ -38,6 +39,9 @@ export const PhysicalArchive: FC<PhysicalArchiveProps> = (props: PhysicalArchive
     const [modalDescription, setModalDescription] = useState<string>('');
     const [modalTitle, setModalTitle] = useState<string>('');
     const dispatch = useDispatch();
+    const [showQrScanner, setShowQrScanner] = useState<boolean>(false);
+    const [qrCode, setQrCode] = useState<Record<string, string>>({});
+    const [scannerFor, setScannerFor] = useState<string>('');
 
     const {height: windowHeight} = useWindowDimensions();
     
@@ -75,26 +79,32 @@ export const PhysicalArchive: FC<PhysicalArchiveProps> = (props: PhysicalArchive
       });
     }, [index]);
 
+    const openScanner = (scannerFor: string) => {
+      Keyboard.dismiss();
+      setShowQrScanner(true);
+      setScannerFor(scannerFor);
+    };
+
     const renderScene = ({route}: { route: { key: string, title: string } }) => {
         switch (route.key) {
             case 'DmarisPredict':
-                return <DamarisPredict navigation={props.navigation} route={props.route} />
+                return <DamarisPredict navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['dp'] ?? ''} />
             case 'ReceiveBox':
-                return <ReceiveBox navigation={props.navigation} route={props.route} />
+                return <ReceiveBox navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['rb'] ?? ''} />
             case 'ReceiveFiles':
-                return <ReceiveFiles navigation={props.navigation} route={props.route} />
+                return <ReceiveFiles navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['rf'] ?? ''} />
             case 'LocalizeBox':
-                return <LocalizeBox navigation={props.navigation} route={props.route} />
+                return <LocalizeBox navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['lb'] ?? ''} qrCodeStorageAddress={qrCode['lb_sa'] ?? ''} />
             case 'LocalizeFiles':
-                return <LocalizeFiles navigation={props.navigation} route={props.route} />
+                return <LocalizeFiles navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['lf'] ?? ''} qrCodeStorageAddress={qrCode['lf_sa'] ?? ''} />
             case 'ReLocalizeBox':
-                return <ReLocalizeBox navigation={props.navigation} route={props.route} />
+                return <ReLocalizeBox navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['rlb'] ?? ''} qrCodeStorageAddress={qrCode['rlb_sa'] ?? ''} />
             case 'ReLocalizeFiles':
-                return <ReLocalizeFiles navigation={props.navigation} route={props.route} />
+                return <ReLocalizeFiles navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['rlf'] ?? ''} qrCodeStorageAddress={qrCode['rlf_sa'] ?? ''} />
             case 'PackagingBox':
-                return <PackagingBox navigation={props.navigation} route={props.route} />
+                return <PackagingBox navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['pb'] ?? ''} qrCodeStorageAddress={qrCode['pb_sa'] ?? ''} />
             case 'PackagingFiles':
-                return <PackagingFiles navigation={props.navigation} route={props.route} />
+                return <PackagingFiles navigation={props.navigation} route={props.route} openScanner={openScanner} qrCode={qrCode['pf'] ?? ''} qrCodeStorageAddress={qrCode['pf_sa'] ?? ''} />
         }
     };
 
@@ -123,39 +133,50 @@ export const PhysicalArchive: FC<PhysicalArchiveProps> = (props: PhysicalArchive
         payload: { profileDrawerActiveTitle: routes[index].title }
       });
     };
+console.log(qrCode, ' // QrCode');
 
     return (
       <>
-        <Header title="Messages" navigation={props.navigation} />
-        <View style={styles.container}>
-            <View style={[Styles.w_100p, {
-                flex: 1,
-                flexDirection: "column",
-                height: (windowHeight - 300)
-            }]}>
-                <TabView
-                    navigationState={{index, routes}}
-                    renderScene={renderScene}
-                    onIndexChange={changeIndex}
-                    style={{ flex: 1 }}
-                    animationEnabled={true}
-                    initialLayout={{width: layout.width}}
-                    renderTabBar={props => (
-                        <TabBar
-                            style={styles.tab_cont}
-                            tabStyle={styles.tab_style}
-                            indicatorStyle={{backgroundColor: '#479ab8', height: 1,}}
-                            activeColor="#479ab8"
-                            inactiveColor="#000"
-                            renderLabel={({ route, focused, color }) => (
-                              <Text style={{ color: color || (focused ? '#479ab8' : '#000'), fontWeight: focused ? 'bold' : 'normal' }}>{route.title}</Text>
-                            )}
-                            scrollEnabled
-                            {...props}
-                        />
-                    )}
-                />
-            </View>
+        <Header title="Damaris Predict" navigation={props.navigation} />
+          <View style={styles.container}>
+            { showQrScanner ? 
+              <QRScanner
+                onCode={(value) => {
+                  setQrCode(prev => ({ ...prev, [scannerFor || 'qr']: value }));
+                  setShowQrScanner(false);
+                }}
+                onBack={() => setShowQrScanner(false)}
+              />
+            :
+              <View style={[Styles.w_100p, {
+                  flex: 1,
+                  flexDirection: "column",
+                  height: (windowHeight - 300)
+              }]}>
+                  <TabView
+                      navigationState={{index, routes}}
+                      renderScene={renderScene}
+                      onIndexChange={changeIndex}
+                      style={{ flex: 1 }}
+                      animationEnabled={true}
+                      initialLayout={{width: layout.width}}
+                      renderTabBar={props => (
+                          <TabBar
+                              style={styles.tab_cont}
+                              tabStyle={styles.tab_style}
+                              indicatorStyle={{backgroundColor: '#479ab8', height: 1,}}
+                              activeColor="#479ab8"
+                              inactiveColor="#000"
+                              renderLabel={({ route, focused, color }) => (
+                                <Text style={{ color: color || (focused ? '#479ab8' : '#000'), fontWeight: focused ? 'bold' : 'normal' }}>{route.title}</Text>
+                              )}
+                              scrollEnabled
+                              {...props}
+                          />
+                      )}
+                  />
+              </View>
+            }
         </View>
       </>
     );

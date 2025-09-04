@@ -19,6 +19,8 @@ import NetInfo from '@react-native-community/netinfo';
 interface ReceiveFilesProps {
   navigation: any;
   route: RouteProp<Record<string, any>, string>;
+  openScanner: (e: any) => void;
+  qrCode: string;
 }
 
 const getUrlFromStorage = async (): Promise<string | null> => {
@@ -81,13 +83,8 @@ const ReceiveFiles = (props: ReceiveFilesProps) => {
   }, []);
 
   useEffect(() => {
-    setCode('')
+    setCode(props.qrCode);
   }, [props.route.params]);
-
-  const openScanner = () => {
-    Keyboard.dismiss();
-    console.log('openScanner');    
-  };
 
   const sendAction = async () => {
     if (isConnected) {
@@ -154,11 +151,11 @@ const ReceiveFiles = (props: ReceiveFilesProps) => {
               onChange={(value) => {
                 setCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('rf')} />}
             />
         </View>
         <View>
-          <Button variant="general" title={t('fragment_receive_file_title')} onClickHandler={() => sendAction()} />
+          <Button variant="general" title={t('fragment_receive_file_title')} onClickHandler={() => sendAction()} buttonCssClass={[{width: '100%'}]} />
         </View>
       </ScrollView>
       <Loading visible={loading} />

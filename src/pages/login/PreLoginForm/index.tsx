@@ -182,7 +182,7 @@ export const PreLoginForm = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}> 
       {showQrScanner ? 
         <QRScanner
           onCode={(value) => {

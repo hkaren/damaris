@@ -19,6 +19,9 @@ import { Loading } from '../../../components/loading/Loading';
 interface PackagingFilesProps {
   navigation: any;
   route: RouteProp<Record<string, any>, string>;
+  openScanner: (e: any) => void;
+  qrCode: string;
+  qrCodeStorageAddress: string
 }
 
 const getUrlFromStorage = async (): Promise<string | null> => {
@@ -67,8 +70,8 @@ const PackagingFiles = (props: PackagingFilesProps) => {
   }, []);
 
   useEffect(() => {
-    setCode('');
-    setDestinationBoxCode('');
+    setCode(props.qrCode);
+    setDestinationBoxCode(props.qrCodeStorageAddress);
     setBoxTypeID('');
   }, [props.route.params]);
 
@@ -106,11 +109,6 @@ const PackagingFiles = (props: PackagingFilesProps) => {
         boxTypeList_.push({value: boxTypeID, label: boxTypeName});
     });
     setBoxTypeList(boxTypeList_);
-  };
-
-  const openScanner = () => {
-    Keyboard.dismiss();
-    console.log('openScanner');    
   };
 
   const sendAction = async () => {
@@ -170,7 +168,7 @@ const PackagingFiles = (props: PackagingFilesProps) => {
               onChange={(value) => {
                 setCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('pf')} />}
             />
         </View>
         <View style={Styles.mb_10}>
@@ -180,7 +178,7 @@ const PackagingFiles = (props: PackagingFilesProps) => {
               onChange={(value) => {
                 setDestinationBoxCode(value);
               }}
-              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => openScanner()} />}
+              rightIcon={<TextInput.Icon icon="qrcode-scan" onPress={() => props.openScanner('pf_sa')} />}
             />
         </View>
         <View style={Styles.mb_10}>
@@ -194,7 +192,7 @@ const PackagingFiles = (props: PackagingFilesProps) => {
           />
         </View>
         <View>
-          <Button variant="general" title={t('fragment_packaging_file_title')} onClickHandler={() => sendAction()} />
+          <Button variant="general" title={t('fragment_packaging_file_title')} onClickHandler={() => sendAction()} buttonCssClass={[{width: '100%'}]} />
         </View>
       </ScrollView>
       <Loading visible={loading} />
