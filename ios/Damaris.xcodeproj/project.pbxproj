@@ -10,6 +10,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		4BAC33FABDB14EC2BCD65AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74458F7942464483867E5237 /* GoogleService-Info.plist */; };
+		708E12A22E6B123D002ECA99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 708E12A12E6B123D002ECA99 /* GoogleService-Info.plist */; };
 		A6DAA92B5224194152FED219 /* libPods-Damaris.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FED76231AA41B35D7CCDB43 /* libPods-Damaris.a */; };
 		ACBBA76380A7F762CCA49CF4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */; };
 		B3C53275D6CA665CC55E44F8 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4C83D01DA3F66A23EECEE /* ExpoModulesProvider.swift */; };
@@ -23,7 +24,8 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Damaris/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Damaris/Info.plist; sourceTree = "<group>"; };
 		3EA9C5955E76FE2B877C2794 /* Pods-Damaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Damaris.debug.xcconfig"; path = "Target Support Files/Pods-Damaris/Pods-Damaris.debug.xcconfig"; sourceTree = "<group>"; };
-		533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Damaris/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Damaris/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		708E12A12E6B123D002ECA99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74458F7942464483867E5237 /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Damaris/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FED76231AA41B35D7CCDB43 /* libPods-Damaris.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Damaris.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Damaris/SplashScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				708E12A12E6B123D002ECA99 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* Damaris */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -114,7 +117,6 @@
 				3EA9C5955E76FE2B877C2794 /* Pods-Damaris.debug.xcconfig */,
 				0ABBA5CC5773A6EEDE8BCC90 /* Pods-Damaris.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -201,6 +203,7 @@
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				4BAC33FABDB14EC2BCD65AFF /* GoogleService-Info.plist in Resources */,
 				ACBBA76380A7F762CCA49CF4 /* PrivacyInfo.xcprivacy in Resources */,
+				708E12A22E6B123D002ECA99 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,10 +470,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -525,10 +525,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
