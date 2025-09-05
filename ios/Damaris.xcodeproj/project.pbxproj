@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13390FF3AF30ABEE87026B40 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1720A377117F3E883B8AB /* ExpoModulesProvider.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		6396A00AB8D9465DCA4CC673 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8A5E61F88522AF522C98E062 /* PrivacyInfo.xcprivacy */; };
+		4BAC33FABDB14EC2BCD65AFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74458F7942464483867E5237 /* GoogleService-Info.plist */; };
+		A6DAA92B5224194152FED219 /* libPods-Damaris.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FED76231AA41B35D7CCDB43 /* libPods-Damaris.a */; };
+		ACBBA76380A7F762CCA49CF4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */; };
+		B3C53275D6CA665CC55E44F8 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4C83D01DA3F66A23EECEE /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D6CA00C27D293EE1F6F394E4 /* libPods-Damaris.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B322BFC8830CC1262333582 /* libPods-Damaris.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0ABBA5CC5773A6EEDE8BCC90 /* Pods-Damaris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Damaris.release.xcconfig"; path = "Target Support Files/Pods-Damaris/Pods-Damaris.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Damaris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Damaris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Damaris/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Damaris/Info.plist; sourceTree = "<group>"; };
-		2467E44444766E73CA89F74D /* Pods-Damaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Damaris.debug.xcconfig"; path = "Target Support Files/Pods-Damaris/Pods-Damaris.debug.xcconfig"; sourceTree = "<group>"; };
-		8A5E61F88522AF522C98E062 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Damaris/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		90937908792B8984C32666D9 /* Pods-Damaris.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Damaris.release.xcconfig"; path = "Target Support Files/Pods-Damaris/Pods-Damaris.release.xcconfig"; sourceTree = "<group>"; };
-		99C1720A377117F3E883B8AB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Damaris/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		9B322BFC8830CC1262333582 /* libPods-Damaris.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Damaris.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA9C5955E76FE2B877C2794 /* Pods-Damaris.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Damaris.debug.xcconfig"; path = "Target Support Files/Pods-Damaris/Pods-Damaris.debug.xcconfig"; sourceTree = "<group>"; };
+		533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Damaris/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		74458F7942464483867E5237 /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Damaris/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FED76231AA41B35D7CCDB43 /* libPods-Damaris.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Damaris.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Damaris/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		C4C4C83D01DA3F66A23EECEE /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Damaris/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Damaris/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Damaris-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Damaris-Bridging-Header.h"; path = "Damaris/Damaris-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,13 +39,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6CA00C27D293EE1F6F394E4 /* libPods-Damaris.a in Frameworks */,
+				A6DAA92B5224194152FED219 /* libPods-Damaris.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D75DC24B094798AA7F1E45 /* Damaris */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4C83D01DA3F66A23EECEE /* ExpoModulesProvider.swift */,
+			);
+			name = Damaris;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* Damaris */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +63,8 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				8A5E61F88522AF522C98E062 /* PrivacyInfo.xcprivacy */,
+				74458F7942464483867E5237 /* GoogleService-Info.plist */,
+				533CF20A26EA1DBCC26A4B5E /* PrivacyInfo.xcprivacy */,
 			);
 			name = Damaris;
 			sourceTree = "<group>";
@@ -62,17 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				9B322BFC8830CC1262333582 /* libPods-Damaris.a */,
+				8FED76231AA41B35D7CCDB43 /* libPods-Damaris.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		428697B42052FC13C739D45E /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				C34F86D1606B06B71EB26486 /* Damaris */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -89,8 +92,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				84DA308C378E38F37292474E /* Pods */,
-				428697B42052FC13C739D45E /* ExpoModulesProviders */,
+				CF06712BA4332908A4F0D05C /* ExpoModulesProviders */,
+				B687C3DCDE90607C54948253 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -105,11 +108,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84DA308C378E38F37292474E /* Pods */ = {
+		B687C3DCDE90607C54948253 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2467E44444766E73CA89F74D /* Pods-Damaris.debug.xcconfig */,
-				90937908792B8984C32666D9 /* Pods-Damaris.release.xcconfig */,
+				3EA9C5955E76FE2B877C2794 /* Pods-Damaris.debug.xcconfig */,
+				0ABBA5CC5773A6EEDE8BCC90 /* Pods-Damaris.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -124,12 +127,12 @@
 			path = Damaris/Supporting;
 			sourceTree = "<group>";
 		};
-		C34F86D1606B06B71EB26486 /* Damaris */ = {
+		CF06712BA4332908A4F0D05C /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				99C1720A377117F3E883B8AB /* ExpoModulesProvider.swift */,
+				00D75DC24B094798AA7F1E45 /* Damaris */,
 			);
-			name = Damaris;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,14 +142,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Damaris" */;
 			buildPhases = (
-				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				40BBE6F1F7F20BD1606D7AA4 /* [Expo] Configure project */,
+				BA202FE9C0720E4466E74620 /* [CP] Check Pods Manifest.lock */,
+				9924A0B532FCFFBB3B9A2E8B /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				4AF7EB58D60AFFC54FC0AAA5 /* [CP] Embed Pods Frameworks */,
+				C9367BBA06F5CE0F339E2C96 /* [CP] Embed Pods Frameworks */,
+				AD0CC5491EB74B2927C72C3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +199,8 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				6396A00AB8D9465DCA4CC673 /* PrivacyInfo.xcprivacy in Resources */,
+				4BAC33FABDB14EC2BCD65AFF /* GoogleService-Info.plist in Resources */,
+				ACBBA76380A7F762CCA49CF4 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,29 +222,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Damaris-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		40BBE6F1F7F20BD1606D7AA4 /* [Expo] Configure project */ = {
+		9924A0B532FCFFBB3B9A2E8B /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -259,25 +241,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Damaris/expo-configure-project.sh\"\n";
 		};
-		4AF7EB58D60AFFC54FC0AAA5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Damaris/Pods-Damaris-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Damaris/Pods-Damaris-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
+		AD0CC5491EB74B2927C72C3E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -327,6 +291,46 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Damaris/Pods-Damaris-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BA202FE9C0720E4466E74620 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Damaris-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9367BBA06F5CE0F339E2C96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Damaris/Pods-Damaris-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Damaris/Pods-Damaris-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -335,7 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				13390FF3AF30ABEE87026B40 /* ExpoModulesProvider.swift in Sources */,
+				B3C53275D6CA665CC55E44F8 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +348,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2467E44444766E73CA89F74D /* Pods-Damaris.debug.xcconfig */;
+			baseConfigurationReference = 3EA9C5955E76FE2B877C2794 /* Pods-Damaris.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -369,18 +373,18 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.damaris.notification.damaris;
-				PRODUCT_NAME = Damaris;
+				PRODUCT_NAME = "Damaris";
 				SWIFT_OBJC_BRIDGING_HEADER = "Damaris/Damaris-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90937908792B8984C32666D9 /* Pods-Damaris.release.xcconfig */;
+			baseConfigurationReference = 0ABBA5CC5773A6EEDE8BCC90 /* Pods-Damaris.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -400,10 +404,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.damaris.notification.damaris;
-				PRODUCT_NAME = Damaris;
+				PRODUCT_NAME = "Damaris";
 				SWIFT_OBJC_BRIDGING_HEADER = "Damaris/Damaris-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

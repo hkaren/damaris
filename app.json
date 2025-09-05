@@ -4,7 +4,7 @@
     "slug": "Damaris",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo_v2.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
     "splash": {
@@ -22,7 +22,13 @@
     },
     "plugins": [
       ["expo-build-properties",  { "android": { "newArchEnabled": false } }],
-      "expo-notifications"
+      "expo-notifications",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
     ],
     "android": {
       "package": "com.damaris.notification.damaris",
@@ -32,7 +38,9 @@
       "bundleIdentifier": "com.damaris.notification.damaris",
       "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
-        "NSCameraUsageDescription": "Allow camera access to scan QR codes."
+        "NSCameraUsageDescription": "Allow camera access to scan QR codes.",
+        "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to access your location while using the app to provide location-based features.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to access your location to enable location-based features."
       }
     }
   }
