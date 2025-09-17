@@ -36,7 +36,7 @@ export const InputOutlined = function (props: InputOutlinedProps) {
             <TextInput
                 label={
                     !props.multiline || focus ?
-                        <View style={[{paddingLeft: 2, marginTop: -5}]}>
+                        // <View style={[{paddingLeft: 2, marginTop: -5}]}>
                             <Text style={[props.placeholderStyle, focus || value || props.value ? {
                                 backgroundColor: 'white',
                                 paddingLeft: 0,
@@ -44,7 +44,7 @@ export const InputOutlined = function (props: InputOutlinedProps) {
                                 fontSize: 16,
                                 color: 'black'
                             } : null]}>{props.label}</Text>
-                        </View>
+                        //</View>
                         :
                         ''
                 }
@@ -74,7 +74,7 @@ export const InputOutlined = function (props: InputOutlinedProps) {
                 right={props.rightIcon}
                 />
 
-                { props.fieldInfo ?
+                { props.fieldInfoTitle ?
                     <TouchableOpacity style={styles.info_area} onPress={() => showHideInfo()}>
                         <SvgComponent name='field_title_info' />
                     </TouchableOpacity>
@@ -84,7 +84,8 @@ export const InputOutlined = function (props: InputOutlinedProps) {
             <FieldInfoModal
                 isVisible={visibleInfo}
                 showHideInfo={showHideInfo}
-                fieldInfo={props.fieldInfo}
+                fieldInfoTitle={props.fieldInfoTitle}
+                fieldInfoDescription={props.fieldInfoDescription}
             />
         </View>
     )

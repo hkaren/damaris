@@ -87,13 +87,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.damaris.notification.damaris'
+    namespace 'com.damaris.threeg.threegmobile'
     defaultConfig {
-        applicationId 'com.damaris.notification.damaris'
+        applicationId 'com.damaris.threeg.threegmobile'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0.0"
+        versionName "5.2.0"
     }
     signingConfigs {
         debug {
@@ -175,3 +175,5 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

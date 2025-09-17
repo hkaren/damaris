@@ -7,7 +7,9 @@ import * as Application from 'expo-application';
 import ImagesPath from './ImagesPath';
 import { MenuItem } from '../Interface';
 import { NAVIGATOR_STACK_SCREEN_LOGOUT } from './AppConstants';
-//import PdfThumbnail from "react-native-pdf-thumbnail";
+import BarcodeScanning, { BarcodeFormat } from '@react-native-ml-kit/barcode-scanning';
+// choose ONE:
+import PdfPageImage from 'react-native-pdf-page-image'; 
 
 export const getDeviceId = async (): Promise<string | null> => {
     if (Platform.OS === 'android') {
@@ -127,34 +129,22 @@ export const parseYyyyMMddHHmm = (s: string): Date | null => {
   return d;
 }
 
-/**
- * Extracts the QR code value from the first page of a local PDF.
- * @param pdfUri e.g. "file:///data/user/0/.../DocumentPicker/xyz.pdf"
- * @returns QR string, or throws if not found
- */
-/*
-export const readQrFromFirstPage = async (pdfUri: string): Promise<string> => {
-  try {
-    if (Constants.appOwnership === 'expo') {
-      throw new Error('PDF QR extraction requires a Dev Build or EAS build (not Expo Go).');
-    }
-    // 1) Generate an image (thumbnail) of page 0
-    //    Increase width if your QR is small. Height auto scales if omitted.
-    const thumb = await PdfThumbnail.generate(pdfUri, 0, 1600);
+export async function readQrFromFirstPage(pdfUri: any): Promise<string | null> {
 
-    // 2) Scan that image with expo-camera's scanFromURLAsync
-    const barcodes = await Camera.scanFromURLAsync(thumb.uri, ['qr']);
+  // Render first page to an image (higher scale ⇒ clearer QR)
+  const { uri: imgUri } = await PdfPageImage.generate(pdfUri, /*page*/ 0, /*scale*/ 2.0);
+  // If using react-native-pdf-thumbnail instead:
+  // const { uri: imgUri } = await PdfThumbnail.generate(pdfUri, /*page*/ 0, /*quality*/ 90);
 
-    if (!barcodes || barcodes.length === 0) {
-      throw new Error("No QR found on page 1. Try increasing thumbnail width.");
-    }
-
-    // ML Kit returns displayValue/rawValue; prefer displayValue if present
-    const first = barcodes[0] as any;
-    const data = first?.data ?? first?.rawValue ?? first?.displayValue;
-    return data ?? "";
-  } catch (err: any) {
-    console.log("QR scan error !!! -> ", String(err?.message ?? err));
-    throw err;
-  }
-}*/
+  // Scan image for barcodes and filter to QR
+  const barcodes = await BarcodeScanning.scan(imgUri);
+  console.log(barcodes, ' /// barcodes');
+  
+  const isQr = (b: any) =>
+    b?.format === BarcodeFormat.QR_CODE || b?.format === 256 || b?.format === 'QR_CODE';
+  
+  const qr = barcodes.find(isQr) ?? barcodes[0]; // fallback to first if you restricted formats
+  const raw = (qr?.value ?? '').trim();
+  
+  return raw || null;          // value is the decoded text/URL
+}

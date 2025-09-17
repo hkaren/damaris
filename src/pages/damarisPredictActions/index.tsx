@@ -234,17 +234,17 @@ const DamarisPredictActions = (props: DamarisPredictActionsProps) => {
       } else if(action === ACTION_PUT_ON_PLACE) {
         changeRequestStatus(0);
       } else if(action === ACTION_RECEIVE_BOX) {
-        return <ReceiveBox navigation={props.navigation} route={props.route} />
+        return <ReceiveBox navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} />
       } else if(action === ACTION_RECEIVE_FILE) {
-        return <ReceiveFiles navigation={props.navigation} route={props.route} />
+        return <ReceiveFiles navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} />
       } else if(action === ACTION_LOCALIZE_BOX) {
-        return <LocalizeBox navigation={props.navigation} route={props.route} />
+        return <LocalizeBox navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else if(action === ACTION_LOCALIZE_FILE) {
-        return <LocalizeFiles navigation={props.navigation} route={props.route} />
+        return <LocalizeFiles navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else if(action === ACTION_RELOCALIZE_BOX) {
-        return <ReLocalizeBox navigation={props.navigation} route={props.route} />
+        return <ReLocalizeBox navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else if(action === ACTION_RELOCALIZE_FILE) {
-        return <ReLocalizeFiles navigation={props.navigation} route={props.route} />
+        return <ReLocalizeFiles navigation={props.navigation} route={props.route}openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else if(action === ACTION_SHOW_ADDRESS_CONTENT) {
         return <ShowAddressContentComponent
             navigation={props.navigation}
@@ -271,9 +271,9 @@ const DamarisPredictActions = (props: DamarisPredictActionsProps) => {
           isBox={false}
         />
       } else if(action === ACTION_PACKAGING_BOX) {
-        return <PackagingBox navigation={props.navigation} route={props.route} />
+        return <PackagingBox navigation={props.navigation} route={props.route} openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else if(action == ACTION_PACKAGING_FILE) {
-        return <PackagingFiles navigation={props.navigation} route={props.route} />
+        return <PackagingFiles navigation={props.navigation} route={props.route} openScanner={e => {}} qrCode={''} qrCodeStorageAddress={''} />
       } else {
         return (
           <View>

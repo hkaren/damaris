@@ -69,6 +69,19 @@ export const SvgComponent = function (props: SvgProps) {
                 <Path d="M12 19L5 12L12 5" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             </Svg>;
         break;
+        case "close":
+            svg =
+            <Svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={[props.cssClass as StyleProp<ViewStyle>]}>
+                <G clip-path="url(#clip0_1037_483)">
+                    <Path d="M14 1.4L12.6 0L7 5.6L1.4 0L0 1.4L5.6 7L0 12.6L1.4 14L7 8.4L12.6 14L14 12.6L8.4 7L14 1.4Z" fill={props.color ? props.color: '#CDC7D4' }/>
+                </G>
+                <Defs>
+                    <ClipPath id="clip0_1037_483">
+                        <Rect width="14" height="14" fill="white"/>
+                    </ClipPath>
+                </Defs>
+            </Svg>;
+        break;
     }
     return (
       <>

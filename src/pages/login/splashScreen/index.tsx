@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {Image, View, Dimensions} from 'react-native';
+import {Image, View, Dimensions, Platform} from 'react-native';
 import {useDispatch} from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
-import { MOBILE_API_PATH_REST_AUTH_LOGIN, MOBILE_APP_VERSION, MOBILE_DEFAULT_LANG_KEY, NAVIGATOR_STACK_SCREEN_DRAWER, NAVIGATOR_STACK_SCREEN_WELCOME, RESPONSE_CODE_SUCCESS } from "../../../utils/AppConstants";
+import { MOBILE_API_PATH_REST_AUTH_LOGIN, MOBILE_APP_VERSION_ANDROID, MOBILE_APP_VERSION_IOS, MOBILE_DEFAULT_LANG_KEY, NAVIGATOR_STACK_SCREEN_DRAWER, NAVIGATOR_STACK_SCREEN_WELCOME, RESPONSE_CODE_SUCCESS } from "../../../utils/AppConstants";
 import { getDeviceId, getPlatform } from "../../../utils/StaticMethods";
 import { MD5 } from "crypto-js";
 import * as Location from 'expo-location';
@@ -102,7 +102,7 @@ export const SplashScreen = ({navigation}: SplashScreenProps) => {
                 const dataToSend = {
                     pnToken: "",
                     callerName: getPlatform(),
-                    callerVersion: MOBILE_APP_VERSION,
+                    callerVersion: Platform.OS === 'android' ? MOBILE_APP_VERSION_ANDROID : MOBILE_APP_VERSION_IOS,
                     depId: "",
                     lang: lang,
                     login: email,

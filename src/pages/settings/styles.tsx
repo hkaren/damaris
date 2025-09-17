@@ -4,6 +4,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  container_inner: {
     padding: 20,
   },
   headerTitle: {

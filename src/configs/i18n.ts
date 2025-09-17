@@ -651,6 +651,8 @@ const resources = {
 
           button_browse: 'Naviguer...',
           login_activity_qr_code_lifetime_invalid: 'The QR Code lifetime is invalid',
+          login_activity_qr_code_invalid: 'It seems the QR Code is invalid',
+          all_messages: 'All messages',
         },
       },
   en: {
@@ -1085,7 +1087,8 @@ const resources = {
       fragment_electronic_archive_error_13: 'Error getting archive types',
       fragment_document_search_error_2: 'No result found',
       
-      login_activity_qr_code_lifetime_invalid: 'Délai QR Code invalide'
+      login_activity_qr_code_lifetime_invalid: 'Délai QR Code invalide',
+      login_activity_qr_code_invalid: 'It seems the QR Code is invalid',
     },
   },
 };

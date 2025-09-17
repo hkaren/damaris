@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.damaris.notification.damaris</string>
+	<string>damaris.dMobileiOS</string>
 	<key>PROJECT_ID</key>
 	<string>damarisfcmapp</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,7 +25,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:327649713751:ios:b0f24df8c2b626b8f48d12</string>
+	<string>1:327649713751:ios:efa884e107d5f422</string>
 	<key>DATABASE_URL</key>
 	<string>https://damarisfcmapp.firebaseio.com</string>
 </dict>

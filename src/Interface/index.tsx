@@ -80,7 +80,8 @@ export interface InputOutlinedProps {
     editable?: number,
     textArea?: boolean,
     onClickCallback?: () => void,
-    fieldInfo?: any,
+    fieldInfoTitle?: any;
+    fieldInfoDescription?: any
     rightIcon?: React.ReactNode,
 }
 

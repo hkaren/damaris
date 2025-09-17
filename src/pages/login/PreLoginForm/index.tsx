@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert, Platform } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
-import * as WebBrowser from 'expo-web-browser';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { LANGUAGE_DE, LANGUAGE_EN, LANGUAGE_FR, LANGUAGE_RO, MOBILE_API_PATH_REST_AUTH_LOGIN, MOBILE_APP_VERSION, MOBILE_DEFAULT_LANG_KEY, NAVIGATOR_STACK_SCREEN_DRAWER, NAVIGATOR_STACK_SCREEN_LOGIN_FORM, NAVIGATOR_STACK_SCREEN_WELCOME, RESPONSE_CODE_SUCCESS } from '../../../utils/AppConstants';
+import { LANGUAGE_DE, LANGUAGE_EN, LANGUAGE_FR, LANGUAGE_RO, MOBILE_API_PATH_REST_AUTH_LOGIN, MOBILE_APP_VERSION_ANDROID, MOBILE_APP_VERSION_IOS, MOBILE_DEFAULT_LANG_KEY, NAVIGATOR_STACK_SCREEN_DRAWER, NAVIGATOR_STACK_SCREEN_LOGIN_FORM, NAVIGATOR_STACK_SCREEN_WELCOME, RESPONSE_CODE_SUCCESS } from '../../../utils/AppConstants';
 import styles from './styles';
 import { useTranslation } from 'react-i18next';
 import QRScanner from '../../general/components/QRScanner';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../../configs/i18n';
-import { getDeviceId, getPlatform, parseYyyyMMddHHmm, toast } from '../../../utils/StaticMethods';
-import { MD5 } from "crypto-js";
+import { getDeviceId, getPlatform, parseYyyyMMddHHmm, readQrFromFirstPage, toast } from '../../../utils/StaticMethods';
 import * as Location from 'expo-location';
 import axiosInstance from '../../../networking/api';
 import { useDispatch } from 'react-redux';
@@ -78,7 +76,8 @@ export const PreLoginForm = () => {
 
   const loginByQrCode = async (value: string) => {
     const contentsSpl = value.split("\n");
-
+    console.log(contentsSpl, ' /// contentsSpl');
+    
     const url = contentsSpl[0];
     const email = contentsSpl[1];
     const password = contentsSpl[2];
@@ -106,7 +105,7 @@ export const PreLoginForm = () => {
             const dataToSend = {
                 pnToken: "",
                 callerName: getPlatform(),
-                callerVersion: MOBILE_APP_VERSION,
+                callerVersion: Platform.OS === 'android' ? MOBILE_APP_VERSION_ANDROID : MOBILE_APP_VERSION_IOS,
                 depId: departmentId,
                 lang: language,
                 login: email,
@@ -117,6 +116,8 @@ export const PreLoginForm = () => {
                     longitude: location?.longitude,
                 }
             };
+            console.log(dataToSend, ' /// dataToSend');
+            
             
             let url_ = url;
             if(!url_.endsWith('/')){
@@ -125,6 +126,8 @@ export const PreLoginForm = () => {
             
             const response = await axiosInstance.post(url_ + MOBILE_API_PATH_REST_AUTH_LOGIN, dataToSend);
             const result = response?.data?.result;
+            console.log(result, ' /// result');
+            
             
             if(result?.code == RESPONSE_CODE_SUCCESS){
                 await setDataToStorage(email, password, url_, language? language : '');
@@ -142,6 +145,7 @@ export const PreLoginForm = () => {
                 })
                 navigation.replace(NAVIGATOR_STACK_SCREEN_DRAWER);
             } else {
+                await setDataToStorage(email, '', url_, language? language : '');
                 navigation.replace(NAVIGATOR_STACK_SCREEN_WELCOME);
             }
         } else {
@@ -172,13 +176,16 @@ export const PreLoginForm = () => {
     console.log(file.uri);
 
     try {
-      const value = ""; //await readQrFromFirstPage(file.uri);
-      console.log(value, ' /// value');
+      const value = await readQrFromFirstPage(file.uri);
+      if(value){
+        loginByQrCode(value);
+      } else {
+        toast('error', 'top', 'ERROR!', t('login_activity_qr_code_invalid'));
+      }
     } catch (e: any) {
       console.log(e);
-      Alert.alert('Not supported in Expo Go', String(e?.message ?? e));
+      toast('error', 'top', 'ERROR!', t('login_activity_qr_code_invalid'));
     }
-    
   };
 
   return (

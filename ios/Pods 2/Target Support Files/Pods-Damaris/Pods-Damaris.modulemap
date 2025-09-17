@@ -1,6 +1,0 @@
-module Pods_Damaris {
-  umbrella header "Pods-Damaris-umbrella.h"
-
-  export *
-  module * { export * }
-}

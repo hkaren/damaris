@@ -1,5 +1,8 @@
-export const MOBILE_APP_VERSION = ""; // IOS: 4.9, ANDROID: 6.2
+export const MOBILE_APP_VERSION_ANDROID = "6.2";
+export const MOBILE_APP_VERSION_IOS = "4.9";
 //export const MOBILE_API_PATH_REST = "http://10.27.41.84:8888/dgs3g_web/";
+
+export const GOOGLE_API_KEY = "AIzaSyB20UeDy_4RnDydiSMvJo_IXjygPA2h-zY";
 
 export const MOBILE_DEFAULT_LANG_KEY = "fr";
 export const PAGINATION_COUNT_20 = 20;
@@ -62,6 +65,7 @@ export const MOBILE_API_PATH_REST_ELECTRONIC_DOCUMENT = "rest/services/archiving
 export const MOBILE_API_PATH_REST_ARCHIVE_ELECTRONIC_DOCUMENT = "rest/services/archiving/archiveElectronicDocument";
 export const MOBILE_API_PATH_REST_MANUAL_TASK = "rest/services/tasks/getManualTasks";
 export const MOBILE_API_PATH_REST_TASK_CHANGE_STATE = "rest/services/tasks/changeManualTaskState";
+export const URL_STORAGE_INFO = "rest/services/prediction/storageInfo";
 
 export const RESPONSE_CODE_SUCCESS = "0001";
 export const RESPONSE_CODE_ERROR_INTERNAL_ERROR = "0002";

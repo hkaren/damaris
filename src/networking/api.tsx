@@ -44,7 +44,7 @@ axiosInstance.interceptors.response.use( async (response) => {
         Toast.show({
             type: 'error',
             position: 'top',
-            text1: 'ERROR!',
+            text1: 'Response Error!',
             text2: message,
             visibilityTime: 3000,
             autoHide: true,
@@ -56,6 +56,12 @@ axiosInstance.interceptors.response.use( async (response) => {
     }
     return response;
 }, (error) =>  {
+    console.log('AXIOS ERROR MESSAGE:', error?.message);
+    console.log('AXIOS ERROR STATUS:', error?.response?.status);
+    console.log('AXIOS ERROR DATA:', JSON.stringify(error?.response?.data));
+    console.log('AXIOS ERROR URL:', error?.config?.url);
+
+    
     Toast.show({
         type: 'error',
         position: 'top',

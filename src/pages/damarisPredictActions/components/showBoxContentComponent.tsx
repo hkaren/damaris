@@ -199,7 +199,7 @@ const ShowBoxContentComponent = (props: ShowBoxContentComponentProps) => {
                     } catch (e){}
 
                     if(isJSONObject) {
-                        if (language && obj[language]) {
+                        if (language && obj && obj[language]) {
                             columnValue = obj[language];
                         } else {
                             columnValue = "-";

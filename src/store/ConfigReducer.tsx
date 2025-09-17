@@ -20,6 +20,10 @@ const initialState: any = {
     filterModalData: {},
     navigationGoBack: false,
     navigationGoBackData: {},
+
+    storageInfoModal: false,
+    storageInfoModalData: {},
+
     
     /*showGlobalHeader: true,
     scrollDownUp: '',

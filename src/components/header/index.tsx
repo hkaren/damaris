@@ -3,7 +3,6 @@ import { MainTabScreenHeaderProps } from "../../Interface"
 import { styles } from "./styles"
 import { SvgComponent } from "../../core/SvgComponent"
 import { Styles } from "../../core/Styles"
-import { useContext, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 
@@ -11,9 +10,6 @@ export const Header = (props: MainTabScreenHeaderProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const config = useSelector((store: any) => store.config);
-    const userInfo = useSelector((store: any) => store.userInfo);
-
-    const [showBack, setShowBack] = useState(false);
 
     const goBackToChat = () => {
         //context.CurrentProfileInfo.accountId = context.UserInfo.accountId;
@@ -26,14 +22,14 @@ export const Header = (props: MainTabScreenHeaderProps) => {
 
         if(props.type == 'offline_actions'){
             types = [
-                {key: 'delete', title: 'Delete'},
-                {key: 'cleanup', title: 'Cleanup'},
+                {key: 'delete', title: t('label_delete')},
+                {key: 'cleanup', title: t('cleanup')},
             ];
         } else {
             types = [
-                {key: 'all_messages', title: 'All messages'},
-                {key: 'new_message', title: 'New message'},
-                {key: 'storage_info', title: 'Storage info'},
+                {key: 'all_messages', title: t('all_messages')},
+                {key: 'new_message', title: t('word_new_message')},
+                {key: 'storage_info', title: t('storage_info')},
             ];
         }
 
@@ -74,15 +70,14 @@ export const Header = (props: MainTabScreenHeaderProps) => {
     };
 
     const storageInfo = () => {
-        console.log('storageInfo');
+        dispatch({
+            type: 'SET_CONFIG',
+            payload: { storageInfoModal: true, storageInfoModalData: {} }
+        });
     };
 
     const openDrawer = () => {
         props.navigation.openDrawer();
-    };
-
-    const openMessenger = () => {
-        //props.navigation.navigate(NAVIGATOR_STACK_SCREEN_MESSENGER);
     };
 
     return (
